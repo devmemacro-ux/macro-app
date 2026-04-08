@@ -15,7 +15,6 @@ dependencies:
 
   # State Management
   flutter_riverpod: ^2.5.1
-  riverpod_annotation: ^2.3.5
 
   # Routing
   go_router: ^14.2.0
@@ -77,14 +76,13 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^4.0.0
 
-  # Code generation
+  # Code generation — only freezed + json_serializable
+  # isar_generator and riverpod_generator removed due to analyzer version conflicts
   build_runner: ^2.4.12
   freezed: 2.4.7
   freezed_annotation: 2.4.2
   json_serializable: ^6.8.0
   json_annotation: ^4.8.1
-  isar_generator: ^3.1.0+1
-  riverpod_generator: ^2.4.3
   mocktail: ^1.0.4
 
 flutter:
