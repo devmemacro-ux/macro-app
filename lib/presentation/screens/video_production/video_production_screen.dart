@@ -107,7 +107,11 @@ class VideoProductionScreen extends ConsumerWidget {
 class _ClipTile extends StatelessWidget {
   final VideoClip clip;
   final int index;
-  const _ClipTile({required super.key, required this.clip, required this.index});
+  const _ClipTile({
+    required super.key,
+    required this.clip,
+    required this.index,
+  });
 
   @override
   Widget build(BuildContext context) {

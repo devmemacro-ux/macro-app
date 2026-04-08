@@ -6,11 +6,7 @@ class ClipThumbnail extends StatelessWidget {
   final VideoClip clip;
   final VoidCallback onTap;
 
-  const ClipThumbnail({
-    super.key,
-    required this.clip,
-    required this.onTap,
-  });
+  const ClipThumbnail({super.key, required this.clip, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +51,10 @@ class ClipThumbnail extends StatelessWidget {
                       ),
                       child: Text(
                         '${clip.duration.inSeconds}s',
-                        style: const TextStyle(color: Colors.white, fontSize: 9),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 9,
+                        ),
                       ),
                     ),
                   ),

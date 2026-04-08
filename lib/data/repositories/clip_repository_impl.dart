@@ -81,7 +81,9 @@ class ClipRepositoryImpl implements ClipRepository {
           .filter()
           .uuidEqualTo(clipId)
           .findFirst();
-      if (clip == null) return const Left(DatabaseFailure('Clip not found'));
+      if (clip == null) {
+        return const Left(DatabaseFailure('Clip not found'));
+      }
 
       await _isar.writeTxn(() async {
         await _isar.clipSchemas.delete(clip.id);
@@ -124,7 +126,9 @@ class ClipRepositoryImpl implements ClipRepository {
           .filter()
           .uuidEqualTo(clipId)
           .findFirst();
-      if (clip == null) return const Left(DatabaseFailure('Clip not found'));
+      if (clip == null) {
+        return const Left(DatabaseFailure('Clip not found'));
+      }
       // TODO: Generate thumbnail using FFmpeg
       return Right(clip.filePath);
     } catch (e) {

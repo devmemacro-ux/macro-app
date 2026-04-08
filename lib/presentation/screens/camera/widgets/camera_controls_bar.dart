@@ -30,21 +30,15 @@ class CameraControlsBar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              icon: const Icon(
-                Icons.close,
-                color: Colors.white,
-                size: 28,
-              ),
+              icon: const Icon(Icons.close, color: Colors.white, size: 28),
               onPressed: onBack,
             ),
-            if (isRecording)
-              _RecordingIndicator(duration: recordingDuration),
+            if (isRecording) _RecordingIndicator(duration: recordingDuration),
             IconButton(
               icon: Icon(
                 _flashIcon,
-                color: flashMode == FlashMode.on
-                    ? AppColors.primary
-                    : Colors.white,
+                color:
+                    flashMode == FlashMode.on ? AppColors.primary : Colors.white,
                 size: 24,
               ),
               onPressed: onFlashToggle,

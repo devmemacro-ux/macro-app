@@ -7,8 +7,7 @@ import 'package:macro_app/core/utils/file_helper.dart';
 import 'package:macro_app/domain/entities/export_settings.dart';
 import 'package:macro_app/domain/repositories/video_processing_repository.dart';
 
-class VideoProcessingRepositoryImpl
-    implements VideoProcessingRepository {
+class VideoProcessingRepositoryImpl implements VideoProcessingRepository {
   @override
   Future<Either<Failure, DerivedOrientations>> deriveOrientations({
     required String sourcePath,
@@ -57,9 +56,7 @@ class VideoProcessingRepositoryImpl
   }) async {
     try {
       if (clipPaths.isEmpty) {
-        return const Left(
-          VideoProcessingFailure('No clips to combine'),
-        );
+        return const Left(VideoProcessingFailure('No clips to combine'));
       }
 
       if (clipPaths.length == 1) {
