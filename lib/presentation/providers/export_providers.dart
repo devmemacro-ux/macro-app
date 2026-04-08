@@ -40,11 +40,17 @@ class ExportNotifier extends StateNotifier<ExportState> {
     required ExportSettings config,
   }) async {
     if (orderedClipIds.isEmpty) {
-      state = state.copyWith(status: ExportStatus.error, error: 'No clips to export');
+      state = state.copyWith(
+        status: ExportStatus.error,
+        error: 'No clips to export',
+      );
       return;
     }
 
-    state = state.copyWith(status: ExportStatus.preparing, progress: 0.0);
+    state = state.copyWith(
+      status: ExportStatus.preparing,
+      progress: 0.0,
+    );
 
     // Resolve clip paths
     final clipPaths = orderedClipIds; // TODO: resolve actual file paths from DB

@@ -56,10 +56,18 @@ class ClipRepositoryImpl implements ClipRepository {
   }
 
   @override
-  Stream<Either<Failure, List<VideoClip>>> getClipsForProject(String projectId) async* {
+  Stream<Either<Failure, List<VideoClip>>> getClipsForProject(
+    String projectId,
+  ) async* {
     try {
-      final clips = await _isar.clipSchemas.filter().projectIdEqualTo(projectId).sortByOrderIndex().findAll();
-      final domainClips = clips.map((s) => VideoClipModel.fromSchema(s).toDomain()).toList();
+      final clips = await _isar.clipSchemas
+          .filter()
+          .projectIdEqualTo(projectId)
+          .sortByOrderIndex()
+          .findAll();
+      final domainClips = clips
+          .map((s) => VideoClipModel.fromSchema(s).toDomain())
+          .toList();
       yield Right(domainClips);
     } catch (e) {
       yield Left(DatabaseFailure(e.toString()));
@@ -69,7 +77,10 @@ class ClipRepositoryImpl implements ClipRepository {
   @override
   Future<Either<Failure, Unit>> deleteClip(String clipId) async {
     try {
-      final clip = await _isar.clipSchemas.filter().uuidEqualTo(clipId).findFirst();
+      final clip = await _isar.clipSchemas
+          .filter()
+          .uuidEqualTo(clipId)
+          .findFirst();
       if (clip == null) return const Left(DatabaseFailure('Clip not found'));
 
       await _isar.writeTxn(() async {
@@ -90,7 +101,10 @@ class ClipRepositoryImpl implements ClipRepository {
     try {
       await _isar.writeTxn(() async {
         for (int i = 0; i < orderedClipIds.length; i++) {
-          final clip = await _isar.clipSchemas.filter().uuidEqualTo(orderedClipIds[i]).findFirst();
+          final clip = await _isar.clipSchemas
+              .filter()
+              .uuidEqualTo(orderedClipIds[i])
+              .findFirst();
           if (clip != null) {
             clip.orderIndex = i;
             await _isar.clipSchemas.put(clip);
@@ -106,7 +120,10 @@ class ClipRepositoryImpl implements ClipRepository {
   @override
   Future<Either<Failure, String>> getClipThumbnail(String clipId) async {
     try {
-      final clip = await _isar.clipSchemas.filter().uuidEqualTo(clipId).findFirst();
+      final clip = await _isar.clipSchemas
+          .filter()
+          .uuidEqualTo(clipId)
+          .findFirst();
       if (clip == null) return const Left(DatabaseFailure('Clip not found'));
       // TODO: Generate thumbnail using FFmpeg
       return Right(clip.filePath);

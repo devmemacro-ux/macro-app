@@ -22,7 +22,12 @@ class UpdateProject {
     String? description,
     ProjectStatus? status,
   }) {
-    return _repository.updateProject(id: id, name: name, description: description, status: status);
+    return _repository.updateProject(
+      id: id,
+      name: name,
+      description: description,
+      status: status,
+    );
   }
 }
 

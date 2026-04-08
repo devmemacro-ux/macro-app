@@ -81,7 +81,10 @@ class AboutScreen extends StatelessWidget {
                 SizedBox(width: 8),
                 Text(
                   AppConstants.developerName,
-                  style: TextStyle(fontSize: 16, color: AppColors.textSecondary),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: AppColors.textSecondary,
+                  ),
                 ),
               ],
             ),

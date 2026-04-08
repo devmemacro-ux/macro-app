@@ -61,7 +61,11 @@ class _EmptyProjectsState extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.video_library_outlined, size: 80, color: AppColors.textMuted),
+          Icon(
+            Icons.video_library_outlined,
+            size: 80,
+            color: AppColors.textMuted,
+          ),
           const SizedBox(height: 16),
           Text(
             'No video projects yet',
@@ -115,7 +119,9 @@ class _ProjectCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () {
-          context.push('${RoutePaths.projectDetail}'.replaceFirst(':id', project.id));
+          context.push(
+            '${RoutePaths.projectDetail}'.replaceFirst(':id', project.id),
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -126,7 +132,11 @@ class _ProjectCard extends StatelessWidget {
                   : Container(
                       color: AppColors.surfaceElevated,
                       child: const Center(
-                        child: Icon(Icons.movie_outlined, size: 48, color: AppColors.primary),
+                        child: Icon(
+                          Icons.movie_outlined,
+                          size: 48,
+                          color: AppColors.primary,
+                        ),
                       ),
                     ),
             ),
@@ -147,7 +157,10 @@ class _ProjectCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     '${project.clipCount} clips · ${DateFormat('MMM d').format(project.updatedAt)}',
-                    style: const TextStyle(fontSize: 11, color: AppColors.textMuted),
+                    style: const TextStyle(
+                      fontSize: 11,
+                      color: AppColors.textMuted,
+                    ),
                   ),
                 ],
               ),
@@ -189,7 +202,11 @@ class _LoadingShimmer extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(height: 14, width: double.infinity, color: Colors.white),
+                      Container(
+                        height: 14,
+                        width: double.infinity,
+                        color: Colors.white,
+                      ),
                       const SizedBox(height: 8),
                       Container(height: 10, width: 80, color: Colors.white),
                     ],

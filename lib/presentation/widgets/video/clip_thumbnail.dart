@@ -35,13 +35,20 @@ class ClipThumbnail extends StatelessWidget {
                     color: AppColors.card,
                   ),
                   const Center(
-                    child: Icon(Icons.play_circle_outline, size: 32, color: AppColors.primary),
+                    child: Icon(
+                      Icons.play_circle_outline,
+                      size: 32,
+                      color: AppColors.primary,
+                    ),
                   ),
                   Positioned(
                     bottom: 4,
                     right: 4,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 4,
+                        vertical: 1,
+                      ),
                       decoration: BoxDecoration(
                         color: Colors.black54,
                         borderRadius: BorderRadius.circular(3),
@@ -59,7 +66,10 @@ class ClipThumbnail extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
               child: Text(
                 clip.sourceResolution.name.toUpperCase(),
-                style: const TextStyle(fontSize: 9, color: AppColors.textMuted),
+                style: const TextStyle(
+                  fontSize: 9,
+                  color: AppColors.textMuted,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

@@ -72,9 +72,9 @@ class _TimelineClip extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: AppColors.card,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
               ),
               child: const Center(
                 child: Icon(Icons.play_arrow, color: AppColors.primary),
@@ -87,13 +87,19 @@ class _TimelineClip extends StatelessWidget {
               children: [
                 Text(
                   'Clip ${index + 1}',
-                  style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w500),
+                  style: const TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w500,
+                  ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                 ),
                 Text(
                   '${clip.duration.inSeconds}s',
-                  style: const TextStyle(fontSize: 10, color: AppColors.textMuted),
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: AppColors.textMuted,
+                  ),
                 ),
               ],
             ),

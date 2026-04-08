@@ -12,11 +12,20 @@ class CreateProject {
     String? description,
   }) async {
     if (name.trim().isEmpty) {
-      return const Left(ValidationFailure('Project name cannot be empty'));
+      return const Left(
+        ValidationFailure('Project name cannot be empty'),
+      );
     }
     if (name.trim().length > 100) {
-      return const Left(ValidationFailure('Project name is too long (max 100 characters)'));
+      return const Left(
+        ValidationFailure(
+          'Project name is too long (max 100 characters)',
+        ),
+      );
     }
-    return await _repository.createProject(name: name.trim(), description: description);
+    return await _repository.createProject(
+      name: name.trim(),
+      description: description,
+    );
   }
 }

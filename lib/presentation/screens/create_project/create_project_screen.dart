@@ -9,10 +9,11 @@ class CreateProjectScreen extends ConsumerStatefulWidget {
   const CreateProjectScreen({super.key});
 
   @override
-  ConsumerState<CreateProjectScreen> createState() => _CreateProjectScreenState();
+  ConsumerState<CreateProjectScreen> createState() =>
+      _CreateProjectScreenState();
 }
 
-class _CreateProjectScreenState extends ConsumerConsumerState<CreateProjectScreen> {
+class _CreateProjectScreenState extends ConsumerState<CreateProjectScreen> {
   final _nameController = TextEditingController();
   final _descController = TextEditingController();
 

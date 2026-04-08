@@ -12,7 +12,10 @@ class StartRecording {
     required VideoResolution quality,
     required bool enableAudio,
   }) {
-    return _repository.startRecording(quality: quality, enableAudio: enableAudio);
+    return _repository.startRecording(
+      quality: quality,
+      enableAudio: enableAudio,
+    );
   }
 }
 

@@ -25,7 +25,8 @@ final cameraRepositoryProvider = Provider<CameraRepository>((ref) {
   return CameraRepositoryImpl();
 });
 
-final videoProcessingRepositoryProvider = Provider<VideoProcessingRepository>((ref) {
+final videoProcessingRepositoryProvider =
+    Provider<VideoProcessingRepository>((ref) {
   return VideoProcessingRepositoryImpl();
 });
 
@@ -50,6 +51,7 @@ class AppStateNotifier extends StateNotifier<AppState> {
   }
 }
 
-final appStateProvider = StateNotifierProvider<AppStateNotifier, AppState>((ref) {
+final appStateProvider =
+    StateNotifierProvider<AppStateNotifier, AppState>((ref) {
   return AppStateNotifier();
 });

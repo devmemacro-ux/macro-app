@@ -32,7 +32,10 @@ class ProjectListTile extends StatelessWidget {
                   color: AppColors.surfaceElevated,
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: const Icon(Icons.movie_outlined, color: AppColors.primary),
+                child: const Icon(
+                  Icons.movie_outlined,
+                  color: AppColors.primary,
+                ),
               ),
         title: Text(
           project.name,
@@ -45,7 +48,10 @@ class ProjectListTile extends StatelessWidget {
         ),
         trailing: onDelete != null
             ? IconButton(
-                icon: const Icon(Icons.delete_outline, color: AppColors.error),
+                icon: const Icon(
+                  Icons.delete_outline,
+                  color: AppColors.error,
+                ),
                 onPressed: onDelete,
               )
             : null,

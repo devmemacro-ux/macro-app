@@ -7,7 +7,8 @@ import 'package:macro_app/presentation/providers/app_providers.dart';
 import 'package:uuid/uuid.dart';
 
 // Clips for a specific project
-final projectClipsProvider = StreamProvider.family<List<VideoClip>, String>((ref, projectId) {
+final projectClipsProvider =
+    StreamProvider.family<List<VideoClip>, String>((ref, projectId) {
   final useCase = GetClipsForProject(ref.watch(clipRepositoryProvider));
   return useCase(projectId).map(
     (either) => either.fold(
@@ -59,7 +60,10 @@ class CameraSessionNotifier extends StateNotifier<CameraSessionState> {
   CameraSessionNotifier() : super(const CameraSessionState());
 
   void startRecording() {
-    state = state.copyWith(status: CameraStatus.recording, recordingDuration: Duration.zero);
+    state = state.copyWith(
+      status: CameraStatus.recording,
+      recordingDuration: Duration.zero,
+    );
   }
 
   Future<String?> stopRecording(String projectId) async {
@@ -74,7 +78,10 @@ class CameraSessionNotifier extends StateNotifier<CameraSessionState> {
       // TODO: In a real implementation, get the actual recorded file path
       // from camerawesome, then trigger FFmpeg processing
 
-      state = state.copyWith(status: CameraStatus.idle, recordingDuration: Duration.zero);
+      state = state.copyWith(
+        status: CameraStatus.idle,
+        recordingDuration: Duration.zero,
+      );
       return filePath;
     } catch (e) {
       state = state.copyWith(
@@ -91,6 +98,8 @@ class CameraSessionNotifier extends StateNotifier<CameraSessionState> {
 }
 
 final cameraSessionProvider =
-    StateNotifierProvider.autoDispose<CameraSessionNotifier, CameraSessionState>((ref) {
-  return CameraSessionNotifier();
-});
+    StateNotifierProvider.autoDispose<CameraSessionNotifier, CameraSessionState>(
+  (ref) {
+    return CameraSessionNotifier();
+  },
+);

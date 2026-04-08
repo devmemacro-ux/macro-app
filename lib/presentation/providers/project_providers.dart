@@ -26,7 +26,8 @@ final updateProjectProvider = Provider<UpdateProject>((ref) {
 });
 
 // Stream of all projects
-final allProjectsStreamProvider = StreamProvider<List<VideoProject>>((ref) {
+final allProjectsStreamProvider =
+    StreamProvider<List<VideoProject>>((ref) {
   final useCase = ref.watch(getAllProjectsProvider);
   return useCase().map(
     (either) => either.fold(
@@ -66,7 +67,8 @@ class CreateProjectFormState {
   }
 }
 
-class CreateProjectFormNotifier extends StateNotifier<CreateProjectFormState> {
+class CreateProjectFormNotifier
+    extends StateNotifier<CreateProjectFormState> {
   CreateProjectFormNotifier() : super(const CreateProjectFormState());
 
   void setName(String name) {
@@ -85,7 +87,10 @@ class CreateProjectFormNotifier extends StateNotifier<CreateProjectFormState> {
     state = state.copyWith(isLoading: true, error: null);
 
     final useCase = ref.read(createProjectProvider);
-    final result = await useCase(name: state.name, description: state.description);
+    final result = await useCase(
+      name: state.name,
+      description: state.description,
+    );
 
     return result.fold(
       (failure) {
@@ -101,6 +106,7 @@ class CreateProjectFormNotifier extends StateNotifier<CreateProjectFormState> {
 }
 
 final createProjectFormProvider =
-    StateNotifierProvider.autoDispose<CreateProjectFormNotifier, CreateProjectFormState>((ref) {
+    StateNotifierProvider.autoDispose<CreateProjectFormNotifier,
+        CreateProjectFormState>((ref) {
   return CreateProjectFormNotifier();
 });

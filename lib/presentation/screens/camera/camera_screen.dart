@@ -13,7 +13,7 @@ class CameraScreen extends ConsumerStatefulWidget {
   ConsumerState<CameraScreen> createState() => _CameraScreenState();
 }
 
-class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
+class _CameraScreenState extends ConsumerState<CameraScreen> {
   bool _isRecording = false;
 
   @override
@@ -48,13 +48,20 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                     right: 0,
                     child: SafeArea(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             // Back button
                             IconButton(
-                              icon: const Icon(Icons.close, color: Colors.white, size: 28),
+                              icon: const Icon(
+                                Icons.close,
+                                color: Colors.white,
+                                size: 28,
+                              ),
                               onPressed: () => context.pop(),
                             ),
                             // Recording indicator
@@ -81,7 +88,9 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                                     ),
                                     const SizedBox(width: 6),
                                     Text(
-                                      _formatDuration(cameraState.recordingDuration),
+                                      _formatDuration(
+                                        cameraState.recordingDuration,
+                                      ),
                                       style: const TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -93,8 +102,11 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                               ),
                             // Orientation indicator
                             IconButton(
-                              icon: const Icon(Icons.screen_rotation_outlined,
-                                  color: Colors.white, size: 24),
+                              icon: const Icon(
+                                Icons.screen_rotation_outlined,
+                                color: Colors.white,
+                                size: 24,
+                              ),
                               onPressed: () {
                                 // TODO: Toggle output orientation
                               },
@@ -117,8 +129,11 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                           children: [
                             // Flash toggle
                             IconButton(
-                              icon: const Icon(Icons.flash_on_outlined,
-                                  color: Colors.white, size: 28),
+                              icon: const Icon(
+                                Icons.flash_on_outlined,
+                                color: Colors.white,
+                                size: 28,
+                              ),
                               onPressed: () {
                                 // TODO: Toggle flash
                               },
@@ -131,7 +146,9 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                               },
                               onTapUp: (_) async {
                                 _isRecording = false;
-                                await cameraNotifier.stopRecording(widget.projectId);
+                                await cameraNotifier.stopRecording(
+                                  widget.projectId,
+                                );
                               },
                               onTapCancel: () {
                                 _isRecording = false;
@@ -157,7 +174,8 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                                           height: 28,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            borderRadius: BorderRadius.circular(4),
+                                            borderRadius:
+                                                BorderRadius.circular(4),
                                           ),
                                         )
                                       : Container(
@@ -173,8 +191,11 @@ class _CameraScreenState extends ConsumerConsumerState<CameraScreen> {
                             ),
                             // Switch camera
                             IconButton(
-                              icon: const Icon(Icons.flip_camera_ios_outlined,
-                                  color: Colors.white, size: 28),
+                              icon: const Icon(
+                                Icons.flip_camera_ios_outlined,
+                                color: Colors.white,
+                                size: 28,
+                              ),
                               onPressed: () {
                                 // TODO: Switch camera
                               },

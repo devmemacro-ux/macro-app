@@ -55,7 +55,11 @@ class _EmptyClipsState extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.videocam_off_outlined, size: 64, color: AppColors.textMuted),
+          Icon(
+            Icons.videocam_off_outlined,
+            size: 64,
+            color: AppColors.textMuted,
+          ),
           const SizedBox(height: 16),
           Text(
             'No clips yet',

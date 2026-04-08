@@ -7,7 +7,8 @@ import 'package:macro_app/core/utils/file_helper.dart';
 import 'package:macro_app/domain/entities/export_settings.dart';
 import 'package:macro_app/domain/repositories/video_processing_repository.dart';
 
-class VideoProcessingRepositoryImpl implements VideoProcessingRepository {
+class VideoProcessingRepositoryImpl
+    implements VideoProcessingRepository {
   @override
   Future<Either<Failure, DerivedOrientations>> deriveOrientations({
     required String sourcePath,
@@ -56,22 +57,27 @@ class VideoProcessingRepositoryImpl implements VideoProcessingRepository {
   }) async {
     try {
       if (clipPaths.isEmpty) {
-        return const Left(VideoProcessingFailure('No clips to combine'));
+        return const Left(
+          VideoProcessingFailure('No clips to combine'),
+        );
       }
 
       if (clipPaths.length == 1) {
-        final output = '${config.outputPath}/export_${DateTime.now().millisecondsSinceEpoch}.mp4';
+        final output =
+            '${config.outputPath}/export_${DateTime.now().millisecondsSinceEpoch}.mp4';
         await File(clipPaths.first).copy(output);
         return Right(output);
       }
 
       // Create concat list file
-      final listPath = '/tmp/concat_list_${DateTime.now().millisecondsSinceEpoch}.txt';
+      final listPath =
+          '/tmp/concat_list_${DateTime.now().millisecondsSinceEpoch}.txt';
       final listFile = File(listPath);
       final content = clipPaths.map((p) => "file '$p'").join('\n');
       await listFile.writeAsString(content);
 
-      final output = '${config.outputPath}/export_${DateTime.now().millisecondsSinceEpoch}.mp4';
+      final output =
+          '${config.outputPath}/export_${DateTime.now().millisecondsSinceEpoch}.mp4';
 
       // Use concat demuxer for same-format clips
       final cmd = '-f concat -safe 0 -i $listPath -c copy "$output"';

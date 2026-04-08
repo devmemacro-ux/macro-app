@@ -4,7 +4,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 // Database
 final databaseProvider = Provider<Isar>((ref) {
-  throw UnimplementedError('Database not initialized. Call initializeDatabase() first.');
+  throw UnimplementedError(
+    'Database not initialized. Call initializeDatabase() first.',
+  );
 });
 
 // Settings

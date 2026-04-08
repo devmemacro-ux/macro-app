@@ -58,8 +58,15 @@ class VideoProductionScreen extends ConsumerWidget {
                         style: const TextStyle(color: AppColors.textSecondary),
                       ),
                     ] else if (exportState.status == ExportStatus.complete) ...[
-                      const Icon(Icons.check_circle, color: AppColors.success, size: 32),
-                      const Text('Export complete!', style: TextStyle(color: AppColors.success)),
+                      const Icon(
+                        Icons.check_circle,
+                        color: AppColors.success,
+                        size: 32,
+                      ),
+                      const Text(
+                        'Export complete!',
+                        style: TextStyle(color: AppColors.success),
+                      ),
                     ] else if (exportState.status == ExportStatus.error) ...[
                       Text(
                         exportState.error ?? 'Unknown error',

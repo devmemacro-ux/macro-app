@@ -50,7 +50,10 @@ class ReorderClips {
     required String projectId,
     required List<String> orderedClipIds,
   }) {
-    return _repository.reorderClips(projectId: projectId, orderedClipIds: orderedClipIds);
+    return _repository.reorderClips(
+      projectId: projectId,
+      orderedClipIds: orderedClipIds,
+    );
   }
 }
 

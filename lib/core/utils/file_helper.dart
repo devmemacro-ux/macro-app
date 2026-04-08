@@ -13,7 +13,9 @@ class FileHelper {
 
   static Future<String> getRecordingsPath(String projectId) async {
     final base = await getAppStoragePath();
-    final dir = Directory(p.join(base, AppConstants.recordingsFolderName, projectId));
+    final dir = Directory(
+      p.join(base, AppConstants.recordingsFolderName, projectId),
+    );
     if (!await dir.exists()) {
       await dir.create(recursive: true);
     }
@@ -22,7 +24,9 @@ class FileHelper {
 
   static Future<String> getProcessedPath(String projectId) async {
     final base = await getAppStoragePath();
-    final dir = Directory(p.join(base, AppConstants.processedFolderName, projectId));
+    final dir = Directory(
+      p.join(base, AppConstants.processedFolderName, projectId),
+    );
     if (!await dir.exists()) {
       await dir.create(recursive: true);
     }

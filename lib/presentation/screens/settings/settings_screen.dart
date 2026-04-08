@@ -78,7 +78,9 @@ class SettingsScreen extends ConsumerWidget {
                 groupValue: ref.read(settingsProvider).defaultResolution,
                 onChanged: (value) {
                   if (value != null) {
-                    ref.read(settingsProvider.notifier).setDefaultResolution(value);
+                    ref
+                        .read(settingsProvider.notifier)
+                        .setDefaultResolution(value);
                     Navigator.of(context).pop();
                   }
                 },

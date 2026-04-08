@@ -67,8 +67,10 @@ class ProjectRepositoryImpl implements ProjectRepository {
   @override
   Future<Either<Failure, VideoProject>> getProjectById(String id) async {
     try {
-      final project =
-          await _isar.projectSchemas.filter().uuidEqualTo(id).findFirst();
+      final project = await _isar.projectSchemas
+          .filter()
+          .uuidEqualTo(id)
+          .findFirst();
       if (project == null) {
         return const Left(DatabaseFailure('Project not found'));
       }
@@ -86,8 +88,10 @@ class ProjectRepositoryImpl implements ProjectRepository {
     ProjectStatus? status,
   }) async {
     try {
-      final existing =
-          await _isar.projectSchemas.filter().uuidEqualTo(id).findFirst();
+      final existing = await _isar.projectSchemas
+          .filter()
+          .uuidEqualTo(id)
+          .findFirst();
       if (existing == null) {
         return const Left(DatabaseFailure('Project not found'));
       }
@@ -110,8 +114,10 @@ class ProjectRepositoryImpl implements ProjectRepository {
   @override
   Future<Either<Failure, Unit>> deleteProject(String projectId) async {
     try {
-      final existing =
-          await _isar.projectSchemas.filter().uuidEqualTo(projectId).findFirst();
+      final existing = await _isar.projectSchemas
+          .filter()
+          .uuidEqualTo(projectId)
+          .findFirst();
       if (existing == null) {
         return const Left(DatabaseFailure('Project not found'));
       }

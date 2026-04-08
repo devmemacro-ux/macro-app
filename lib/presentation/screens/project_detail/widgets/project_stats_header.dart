@@ -21,7 +21,10 @@ class ProjectStatsHeader extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [AppColors.primary.withOpacity(0.2), AppColors.primary.withOpacity(0.05)],
+          colors: [
+            AppColors.primary.withOpacity(0.2),
+            AppColors.primary.withOpacity(0.05),
+          ],
         ),
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(24),
@@ -84,7 +87,13 @@ class _StatChip extends StatelessWidget {
         children: [
           Icon(icon, size: 16, color: AppColors.primary),
           const SizedBox(width: 4),
-          Text(label, style: const TextStyle(fontSize: 12, color: AppColors.textPrimary)),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 12,
+              color: AppColors.textPrimary,
+            ),
+          ),
         ],
       ),
     );

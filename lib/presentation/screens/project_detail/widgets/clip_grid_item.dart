@@ -28,7 +28,11 @@ class ClipGridItem extends StatelessWidget {
             Container(
               color: AppColors.surfaceElevated,
               child: const Center(
-                child: Icon(Icons.play_circle_outline, size: 40, color: AppColors.primary),
+                child: Icon(
+                  Icons.play_circle_outline,
+                  size: 40,
+                  color: AppColors.primary,
+                ),
               ),
             ),
             // Index badge
