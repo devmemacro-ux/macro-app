@@ -1,0 +1,55 @@
+# Flutter/Dart
+*.class
+*.lock
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ
+*.iml
+**/.idea/
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# Android
+*.jks
+*.keystore
+**/android/app/key.properties
+**/android/key.properties
+.gradle/
+build/
+**/android/.gradle/
+
+# iOS
+**/ios/.symlinks/
+**/ios/Pods/
+**/ios/.idea/
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Flutter/App.framework
+
+# Coverage
+coverage/
+
+# Generated
+lib/**/*.g.dart
+lib/**/*.freezed.dart
+**/*.generated.dart
+
+# Environment
+.env
+.env.*
+
+# Misc
+*.log
+*.tmp
+*.bak
+**/build/
