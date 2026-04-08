@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:macro_app/core/theme/app_colors.dart';
 import 'package:macro_app/domain/entities/video_clip.dart';
@@ -23,7 +24,7 @@ class ClipTimeline extends StatelessWidget {
           animation: animation,
           builder: (context, child) {
             final double t = Curves.easeInOut.transform(animation.value);
-            final double scale = lerpDouble(1.0, 1.05, t)!;
+            final double scale = 1.0 + (0.05 * t);
             return Transform.scale(
               scale: scale,
               child: Material(

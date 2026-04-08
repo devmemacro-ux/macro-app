@@ -26,19 +26,8 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
         children: [
           // Camera preview
           CameraAwesomeBuilder.custom(
-            previewFit: CameraPreviewFit.fit,
-            saveConfig: SaveConfig.video(
-              initialEnableAudio: true,
-              initialVideoOptions: const VideoOptions(
-                enableAudio: true,
-                ios: CupertinoVideoOptions(),
-                android: AndroidVideoOptions(),
-              ),
-            ),
-            onMediaCaptureEvent: (event) {
-              // Handle video recording events
-            },
-            previewDecoratorBuilder: (state, previewSize) {
+            saveConfig: SaveConfig.photoAndVideo(),
+            builder: (state, previewSize, previewRect) {
               return Stack(
                 children: [
                   // Top bar controls
@@ -207,9 +196,6 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
                   ),
                 ],
               );
-            },
-            builder: (state, preview) {
-              return const SizedBox.shrink();
             },
           ),
         ],

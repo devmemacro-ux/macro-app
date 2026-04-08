@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:macro_app/core/constants/route_constants.dart';
 import 'package:macro_app/core/theme/app_colors.dart';
 import 'package:macro_app/domain/entities/video_project.dart';
-import 'package:macro_app/presentation/providers/app_providers.dart';
 import 'package:macro_app/presentation/providers/project_providers.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -15,7 +14,6 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final projectsAsync = ref.watch(allProjectsStreamProvider);
-    final theme = Theme.of(context);
 
     return Scaffold(
       appBar: AppBar(

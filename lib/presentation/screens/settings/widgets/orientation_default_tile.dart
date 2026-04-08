@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:macro_app/core/utils/video_orientation.dart';
-import 'package:macro_app/core/theme/app_colors.dart';
 
 class OrientationDefaultTile extends StatelessWidget {
   final VideoOrientation currentOrientation;

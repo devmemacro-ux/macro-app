@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:macro_app/core/theme/app_colors.dart';
 import 'package:macro_app/domain/entities/video_clip.dart';
 import 'package:macro_app/presentation/providers/camera_providers.dart';
-import 'package:macro_app/presentation/providers/project_providers.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProjectDetailScreen extends ConsumerWidget {
@@ -55,7 +54,7 @@ class _EmptyClipsState extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(
+          const Icon(
             Icons.videocam_off_outlined,
             size: 64,
             color: AppColors.textMuted,
@@ -68,7 +67,7 @@ class _EmptyClipsState extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 8),
-          Text(
+          const Text(
             'Tap the Camera button to start recording',
             style: TextStyle(color: AppColors.textMuted),
           ),

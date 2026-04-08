@@ -109,7 +109,7 @@ class AboutScreen extends StatelessWidget {
                 ),
               ),
               child: Column(
-                children: [
+                children: <Widget>[
                   const Text(
                     AppConstants.dedicationArabic,
                     textAlign: TextAlign.center,
@@ -133,9 +133,9 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 32),
             const Divider(color: AppColors.surfaceElevated),
             const SizedBox(height: 16),
-            Text(
-              '\u00A9 2026 ${AppConstants.developerName}',
-              style: const TextStyle(
+            const Text(
+              '© 2026 Mohamed Sherif',
+              style: TextStyle(
                 fontSize: 12,
                 color: AppColors.textMuted,
               ),
