@@ -1,5 +1,4 @@
 import 'package:isar/isar.dart';
-import 'package:macro_app/domain/entities/video_project.dart';
 
 part 'project_database.g.dart';
 
@@ -25,11 +24,4 @@ class ProjectSchema {
   int totalDurationMs = 0;
 
   late String status;
-
-  ProjectStatus toDomain() {
-    return ProjectStatus.values.firstWhere(
-      (e) => e.name == status,
-      orElse: () => ProjectStatus.active,
-    );
-  }
 }
