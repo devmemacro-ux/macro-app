@@ -20,7 +20,5 @@ class CameraException implements Exception {
 
 class VideoProcessingException implements Exception {
   final String message;
-  const VideoProcessingException(
-    [this.message = 'VideoProcessing error'],
-  );
+  const VideoProcessingException({this.message = 'Video error'});
 }
