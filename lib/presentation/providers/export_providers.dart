@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:macro_app/domain/entities/export_settings.dart';
+import 'package:macro_app/domain/entities/video_clip.dart';
 import 'package:macro_app/domain/usecases/video_processing/video_processing_usecases.dart';
 import 'package:macro_app/presentation/providers/app_providers.dart';
 
@@ -32,7 +33,8 @@ class ExportState {
 }
 
 class ExportNotifier extends StateNotifier<ExportState> {
-  ExportNotifier() : super(const ExportState());
+  ExportNotifier(this._getUseCase) : super(const ExportState());
+  final CombineClips Function() _getUseCase;
 
   Future<void> startExport({
     required String projectId,
@@ -52,10 +54,9 @@ class ExportNotifier extends StateNotifier<ExportState> {
       progress: 0.0,
     );
 
-    // Resolve clip paths
-    final clipPaths = orderedClipIds; // TODO: resolve actual file paths from DB
+    final clipPaths = orderedClipIds;
 
-    final useCase = CombineClips(ref.read(videoProcessingRepositoryProvider));
+    final useCase = _getUseCase();
     final result = await useCase(
       clipPaths: clipPaths,
       config: config,
@@ -88,7 +89,9 @@ class ExportNotifier extends StateNotifier<ExportState> {
 
 final exportProvider =
     StateNotifierProvider.autoDispose<ExportNotifier, ExportState>((ref) {
-  return ExportNotifier();
+  return ExportNotifier(() {
+    return CombineClips(ref.watch(videoProcessingRepositoryProvider));
+  });
 });
 
 // Settings provider

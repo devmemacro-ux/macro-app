@@ -4,7 +4,7 @@ import 'package:macro_app/core/errors/failures.dart';
 import 'package:macro_app/domain/entities/video_clip.dart';
 
 abstract class CameraRepository {
-  Future<Either<Failure, RecordingSession>> startRecording({
+  Future<Either<Failure, Unit>> startRecording({
     required VideoResolution quality,
     @Default(true) bool enableAudio,
   });

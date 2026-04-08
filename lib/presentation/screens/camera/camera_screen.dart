@@ -27,7 +27,7 @@ class _CameraScreenState extends ConsumerState<CameraScreen> {
           // Camera preview
           CameraAwesomeBuilder.custom(
             saveConfig: SaveConfig.photoAndVideo(),
-            builder: (state, previewSize, previewRect) {
+            builder: (state, previewSize, Rect previewRect) {
               return Stack(
                 children: [
                   // Top bar controls

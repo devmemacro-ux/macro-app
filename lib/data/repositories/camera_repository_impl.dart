@@ -8,7 +8,7 @@ class CameraRepositoryImpl implements CameraRepository {
   CameraAwesomePlugin get _camera => CameraAwesomePlugin();
 
   @override
-  Future<Either<Failure, RecordingSession>> startRecording({
+  Future<Either<Failure, Unit>> startRecording({
     required VideoResolution quality,
     required bool enableAudio,
   }) async {

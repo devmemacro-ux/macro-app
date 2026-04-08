@@ -35,7 +35,7 @@ Future<void> main() async {
   // Initialize Isar database
   final dir = await getApplicationDocumentsDirectory();
   final isar = await Isar.open(
-    [ProjectSchemaSchema, ClipSchemaSchema],
+    [ProjectSchema, ClipSchema],
     directory: dir.path,
   );
 

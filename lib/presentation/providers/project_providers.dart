@@ -67,7 +67,8 @@ class CreateProjectFormState {
 }
 
 class CreateProjectFormNotifier extends StateNotifier<CreateProjectFormState> {
-  CreateProjectFormNotifier() : super(const CreateProjectFormState());
+  CreateProjectFormNotifier(this._useCase) : super(const CreateProjectFormState());
+  final CreateProject _useCase;
 
   void setName(String name) {
     state = state.copyWith(name: name, error: null);
@@ -84,8 +85,7 @@ class CreateProjectFormNotifier extends StateNotifier<CreateProjectFormState> {
     }
     state = state.copyWith(isLoading: true, error: null);
 
-    final useCase = ref.read(createProjectProvider);
-    final result = await useCase(
+    final result = await _useCase(
       name: state.name,
       description: state.description,
     );
@@ -106,5 +106,7 @@ class CreateProjectFormNotifier extends StateNotifier<CreateProjectFormState> {
 final createProjectFormProvider =
     StateNotifierProvider.autoDispose<CreateProjectFormNotifier,
         CreateProjectFormState>((ref) {
-  return CreateProjectFormNotifier();
+  return CreateProjectFormNotifier(
+    ref.watch(createProjectProvider),
+  );
 });

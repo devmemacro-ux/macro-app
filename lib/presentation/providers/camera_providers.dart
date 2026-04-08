@@ -1,7 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:macro_app/core/utils/file_helper.dart';
 import 'package:macro_app/domain/entities/video_clip.dart';
-import 'package:macro_app/domain/entities/video_project.dart';
 import 'package:macro_app/domain/usecases/clip/clip_usecases.dart';
 import 'package:macro_app/presentation/providers/app_providers.dart';
 import 'package:uuid/uuid.dart';

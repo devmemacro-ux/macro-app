@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:macro_app/core/theme/app_colors.dart';
 import 'package:macro_app/domain/entities/video_clip.dart';

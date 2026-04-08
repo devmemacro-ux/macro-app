@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:camerawesome/camerawesome_plugin.dart';
 import 'package:macro_app/core/errors/failures.dart';
 import 'package:macro_app/domain/entities/video_clip.dart';
 import 'package:macro_app/domain/repositories/camera_repository.dart';
@@ -8,7 +7,7 @@ class StartRecording {
   final CameraRepository _repository;
   const StartRecording(this._repository);
 
-  Future<Either<Failure, RecordingSession>> call({
+  Future<Either<Failure, Unit>> call({
     required VideoResolution quality,
     required bool enableAudio,
   }) {

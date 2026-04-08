@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:isar/isar.dart';
 import 'package:macro_app/core/di/injection.dart';
 import 'package:macro_app/data/repositories/clip_repository_impl.dart';
 import 'package:macro_app/data/repositories/camera_repository_impl.dart';
